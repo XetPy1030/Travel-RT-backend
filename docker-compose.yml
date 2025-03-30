@@ -1,0 +1,35 @@
+x-app-base: &app-base
+  build:
+    context: .
+    dockerfile: Dockerfile
+  volumes:
+    - .:/app
+  depends_on:
+    - redis
+    - postgres
+  environment: &common-env
+    - POSTGRES_HOST=postgres
+  restart: unless-stopped
+
+services:
+  app:
+    <<: *app-base
+    container_name: travel-app
+    command: python main.py
+
+  postgres:
+    image: postgres:12
+    container_name: travel-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - travel-postgres:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  travel-redis:
+  travel-postgres:
