@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 from drf_spectacular.utils import extend_schema, OpenApiResponse
 
-from .serializers import UserSerializer, LogoutSerializer
+from .serializers import UserSerializer, LogoutSerializer, UserCreateSerializer
 
 class LogoutView(APIView):
     permission_classes = (IsAuthenticated,)
@@ -26,6 +26,21 @@ class LogoutView(APIView):
         token = RefreshToken(refresh_token)
         token.blacklist()
         return Response(status=status.HTTP_205_RESET_CONTENT)
+
+
+class UserCreateView(generics.CreateAPIView):
+    serializer_class = UserCreateSerializer
+    
+    @extend_schema(
+        request=UserCreateSerializer,
+        responses={
+            201: UserCreateSerializer,
+            400: OpenApiResponse(description="Invalid data")
+        },
+        description="Create a new user account"
+    )
+    def post(self, request, *args, **kwargs):
+        return super().post(request, *args, **kwargs)
 
 
 class UserProfileView(generics.RetrieveUpdateAPIView):
