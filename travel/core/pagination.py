@@ -10,15 +10,16 @@ class StandardResultsSetPagination(PageNumberPagination):
     def get_paginated_response(self, data):
         return Response({
             'count': self.page.paginator.count,
-            'current_page': self.page.number,
             'page_size': self.get_page_size(self.request),
+            'next': self.get_next_link(),
+            'previous': self.get_previous_link(),
             'results': data,
         })
     
     def get_paginated_response_schema(self, schema):
         return {
             'type': 'object',
-            'required': ['count', 'current_page', 'page_size', 'results'],
+            'required': ['count', 'page_size', 'results'],
             'properties': {
                 'count': {
                     'type': 'integer',
@@ -28,9 +29,19 @@ class StandardResultsSetPagination(PageNumberPagination):
                     'type': 'integer',
                     'example': 10,
                 },
-                'current_page': {
-                    'type': 'integer',
-                    'example': 1,
+                'next': {
+                    'type': 'string',
+                    'nullable': True,
+                    'format': 'uri',
+                    'example': 'http://api.example.org/accounts/?{page_query_param}=4'.format(
+                        page_query_param=self.page_query_param)
+                },
+                'previous': {
+                    'type': 'string',
+                    'nullable': True,
+                    'format': 'uri',
+                    'example': 'http://api.example.org/accounts/?{page_query_param}=2'.format(
+                        page_query_param=self.page_query_param)
                 },
                 'results': schema,
             },
