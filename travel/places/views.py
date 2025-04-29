@@ -3,10 +3,12 @@ from rest_framework import viewsets, filters
 
 from .models import Place
 from .serializers import PlaceListSerializer, PlaceDetailSerializer
+from ..core.pagination import StandardResultsSetPagination
 
 
 class PlaceViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Place.objects.all()
+    pagination_class = StandardResultsSetPagination
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['district', 'settlement']
     search_fields = ['title', 'short_description']
