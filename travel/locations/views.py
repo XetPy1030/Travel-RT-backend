@@ -1,5 +1,7 @@
-from rest_framework import viewsets
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import viewsets, filters
 
+from travel.core.pagination import StandardResultsSetPagination
 from travel.locations.models import District, Settlement
 from travel.locations.serializers import DistrictSerializer, SettlementSerializer
 
@@ -10,6 +12,12 @@ class DistrictViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = District.objects.all()
     serializer_class = DistrictSerializer
+    pagination_class = StandardResultsSetPagination
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    filterset_fields = ['name']
+    search_fields = ['name']
+    ordering_fields = ['name', 'settlements_count']
+    ordering = ['name']
 
 
 class SettlementViewSet(viewsets.ReadOnlyModelViewSet):
@@ -18,3 +26,9 @@ class SettlementViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = Settlement.objects.all()
     serializer_class = SettlementSerializer
+    pagination_class = StandardResultsSetPagination
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    filterset_fields = ['name', 'type', 'district']
+    search_fields = ['name']
+    ordering_fields = ['name', 'type']
+    ordering = ['name']

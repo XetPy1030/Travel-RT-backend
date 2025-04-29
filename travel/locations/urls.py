@@ -1,10 +1,12 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 
-from .views import DistrictViewSet, SettlementViewSet
+from travel.locations.views import DistrictViewSet, SettlementViewSet
+
+router = DefaultRouter()
+router.register(r'districts', DistrictViewSet, basename='district')
+router.register(r'settlements', SettlementViewSet, basename='settlement')
 
 urlpatterns = [
-    path('districts/', DistrictViewSet.as_view({'get': 'list'}), name='districts'),
-    path('districts/<int:pk>/', DistrictViewSet.as_view({'get': 'retrieve'}), name='district-detail'),
-    path('settlements/', SettlementViewSet.as_view({'get': 'list'}), name='settlements'),
-    path('settlements/<int:pk>/', SettlementViewSet.as_view({'get': 'retrieve'}), name='settlement-detail'),
+    path('', include(router.urls)),
 ]
