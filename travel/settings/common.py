@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django_ckeditor_5',
     'django_filters',
 
+    'travel.locations',
     'travel.accounts',
     'travel.news',
 ]
