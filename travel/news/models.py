@@ -8,7 +8,7 @@ class News(models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to='news_images/', null=True, blank=True)
     description = models.TextField()
-    content = CKEditor5Field()
+    content = CKEditor5Field(config_name='extends')
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey('accounts.User', on_delete=models.CASCADE)
     
