@@ -46,7 +46,12 @@
    poetry run python manage.py migrate
    ```
 
-6. Запустите сервер разработки:
+6. Загрузите тестовые данные:
+   ```bash
+   poetry run python manage.py loaddata tatarstan_locations.json
+   ```
+
+7. Запустите сервер разработки:
    ```bash
    poetry run python manage.py runserver
    ```
