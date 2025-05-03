@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'travel.accounts',
     'travel.news',
     'travel.places',
+    'travel.routers',
 ]
 
 MIDDLEWARE = [
