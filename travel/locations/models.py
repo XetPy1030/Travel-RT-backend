@@ -4,11 +4,11 @@ from django.db import models
 class District(models.Model):
     name = models.CharField("Название района", max_length=100)
     administrative_center = models.ForeignKey(
-        'Settlement',
+        "Settlement",
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        related_name='governed_districts',
+        related_name="governed_districts",
         verbose_name="Административный центр",
     )
 

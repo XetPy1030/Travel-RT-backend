@@ -8,7 +8,7 @@ from travel.locations.models import District, Settlement
 class Place(models.Model):
     title = models.CharField("Название", max_length=255)
     short_description = models.TextField("Краткое описание")
-    full_description = CKEditor5Field("Полное описание", config_name='extends')
+    full_description = CKEditor5Field("Полное описание", config_name="extends")
     district = models.ForeignKey(
         District,
         on_delete=models.SET_NULL,
@@ -36,7 +36,9 @@ class Place(models.Model):
 
     def clean(self):
         if not self.district and not self.settlement:
-            raise ValidationError("Место должно иметь либо район, либо населенный пункт")
+            raise ValidationError(
+                "Место должно иметь либо район, либо населенный пункт"
+            )
 
     def save(self, *args, **kwargs):
         self.full_clean()

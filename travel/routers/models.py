@@ -7,30 +7,30 @@ from travel.locations.models import District, Settlement
 
 class Router(models.Model):
     class Difficulty(models.TextChoices):
-        EASY = 'easy', 'Легкий'
-        MEDIUM = 'medium', 'Средний'
-        HARD = 'hard', 'Сложный'
+        EASY = "easy", "Легкий"
+        MEDIUM = "medium", "Средний"
+        HARD = "hard", "Сложный"
 
     title = models.CharField("Название", max_length=255)
     short_description = models.TextField("Краткое описание")
-    full_description = CKEditor5Field("Полное описание", config_name='extends')
+    full_description = CKEditor5Field("Полное описание", config_name="extends")
     image = models.ImageField(
         "Изображение",
-        upload_to='routers/images/',
+        upload_to="routers/images/",
         null=True,
         blank=True,
-        help_text="Загрузите изображение для маршрута"
+        help_text="Загрузите изображение для маршрута",
     )
     duration = models.DurationField(
         "Продолжительность маршрута",
-        help_text="Укажите продолжительность маршрута в формате ЧЧ:ММ:СС"
+        help_text="Укажите продолжительность маршрута в формате ЧЧ:ММ:СС",
     )
     difficulty = models.CharField(
         "Сложность",
         max_length=10,
         choices=Difficulty.choices,
         default=Difficulty.MEDIUM,
-        help_text="Выберите уровень сложности маршрута"
+        help_text="Выберите уровень сложности маршрута",
     )
 
     district = models.ForeignKey(
@@ -60,7 +60,9 @@ class Router(models.Model):
 
     def clean(self):
         if not self.district and not self.settlement:
-            raise ValidationError("Место должно иметь либо район, либо населенный пункт")
+            raise ValidationError(
+                "Место должно иметь либо район, либо населенный пункт"
+            )
 
     def save(self, *args, **kwargs):
         self.full_clean()
