@@ -5,7 +5,7 @@ from .serializers import NewsSerializer
 from ..core.pagination import StandardResultsSetPagination
 
 
-class NewsViewSet(viewsets.ModelViewSet):
+class NewsViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = News.objects.all()
     serializer_class = NewsSerializer
     pagination_class = StandardResultsSetPagination
