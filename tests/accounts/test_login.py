@@ -3,7 +3,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from ..factories import UserFactory
+from tests.accounts.factories import UserFactory
 
 
 class TokenObtainPairViewTest(APITestCase):

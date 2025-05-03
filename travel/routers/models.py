@@ -1,6 +1,6 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django_ckeditor_5.fields import CKEditor5Field
-from rest_framework.exceptions import ValidationError
 
 from travel.locations.models import District, Settlement
 

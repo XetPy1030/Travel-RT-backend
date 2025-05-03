@@ -25,6 +25,9 @@ class RouterListSerializer(serializers.ModelSerializer):
 
 
 class RouterDetailSerializer(serializers.ModelSerializer):
+    district_name = serializers.CharField(source="district.name", read_only=True)
+    settlement_name = serializers.CharField(source="settlement.name", read_only=True)
+
     class Meta:
         model = Router
         fields = (
