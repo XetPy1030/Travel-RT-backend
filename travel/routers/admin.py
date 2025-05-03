@@ -9,6 +9,18 @@ class RouterAdmin(admin.ModelAdmin):
     list_filter = ("district", "settlement")
     search_fields = ("title", "short_description")
     fieldsets = (
-        (None, {"fields": ("title", "short_description", "full_description")}),
+        (
+            None,
+            {
+                "fields": (
+                    "title",
+                    "short_description",
+                    "full_description",
+                    "image",
+                    "duration",
+                    "difficulty",
+                )
+            },
+        ),
         ("Локация", {"fields": ("district", "settlement")}),
     )
