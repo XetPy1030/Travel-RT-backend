@@ -14,7 +14,7 @@ class RouterViewSet(viewsets.ReadOnlyModelViewSet):
         filters.SearchFilter,
         filters.OrderingFilter,
     ]
-    filterset_fields = ["district", "settlement"]
+    filterset_fields = ["district", "settlement", "difficulty"]
     search_fields = ["title", "short_description"]
     ordering_fields = ["title", "created_at"]
     ordering = ["title"]
