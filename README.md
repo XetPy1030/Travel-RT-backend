@@ -46,12 +46,22 @@
    poetry run python manage.py migrate
    ```
 
-6. Загрузите тестовые данные:
+6. Загрузите начальные данные:
    ```bash
    poetry run python manage.py loaddata tatarstan_locations.json
    ```
 
-7. Запустите сервер разработки:
+7. Загрузите примеры данных:
+   ```bash
+   poetry run python manage.py loaddata example_data.json
+   ```
+
+8. Переименуйте папку example_media в media:
+   ```bash
+   mv example_media media
+   ```
+
+9. Запустите сервер разработки:
    ```bash
    poetry run python manage.py runserver
    ```
