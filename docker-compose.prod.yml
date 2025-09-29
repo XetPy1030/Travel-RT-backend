@@ -1,0 +1,32 @@
+
+services:
+  app:
+    container_name: travel-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DJANGO_SETTINGS_MODULE=travel.settings.prod
+    command: python manage.py runserver
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    networks:
+      - travel-rt-network
+
+  postgres:
+    image: postgres:17
+    container_name: travel-postgres
+    volumes:
+      - travel-postgres:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - travel-rt-network
+
+volumes:
+  travel-redis:
+  travel-postgres:
+
+networks:
+  travel-rt-network:
+    driver: bridge
