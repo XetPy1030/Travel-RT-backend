@@ -27,7 +27,7 @@ wheels/
 MANIFEST
 
 # Virtual environments
-.env
+#.env
 .venv
 env/
 venv/
@@ -85,7 +85,7 @@ logs/
 *.sqlite3
 
 # Environment files
-.env*
+#.env*
 !.env.example
 
 # Node modules (if any)
