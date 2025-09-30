@@ -29,4 +29,6 @@ volumes:
 
 networks:
   travel-rt-network:
+    name: travel-rt-network
     driver: bridge
+    external: true
