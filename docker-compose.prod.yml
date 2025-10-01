@@ -7,7 +7,13 @@ services:
       dockerfile: Dockerfile
     environment:
       - DJANGO_SETTINGS_MODULE=travel.settings.prod
-    command: python manage.py runserver
+    volumes:
+      - travel-media:/app/media
+    command: >
+      bash -c "
+        python manage.py migrate &&
+        python manage.py runserver
+      "
     depends_on:
       - postgres
     restart: unless-stopped
@@ -19,6 +25,10 @@ services:
     container_name: travel-postgres
     volumes:
       - travel-postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     restart: unless-stopped
     networks:
       - travel-rt-network
@@ -26,6 +36,7 @@ services:
 volumes:
   travel-redis:
   travel-postgres:
+  travel-media:
 
 networks:
   travel-rt-network:
