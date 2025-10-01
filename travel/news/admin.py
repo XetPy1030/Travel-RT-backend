@@ -9,6 +9,10 @@ class NewsAdmin(admin.ModelAdmin):
     list_filter = ("created_at", "created_by")
     search_fields = ("title", "description")
     readonly_fields = ("created_at", "created_by")
+    fieldsets = (
+        (None, {"fields": ("title", "image", "description", "content")}),
+        ("Метаданные", {"fields": ("created_at", "created_by")}),
+    )
 
     def save_model(self, request, obj, form, change):
         if not change:  # If creating new object

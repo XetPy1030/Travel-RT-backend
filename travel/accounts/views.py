@@ -14,11 +14,11 @@ class LogoutView(APIView):
     @extend_schema(
         request=LogoutSerializer,
         responses={
-            205: OpenApiResponse(description="Successfully logged out"),
-            400: OpenApiResponse(description="Invalid refresh token"),
-            401: OpenApiResponse(description="Authentication failed"),
+            205: OpenApiResponse(description="Успешный выход из системы"),
+            400: OpenApiResponse(description="Неверный токен обновления"),
+            401: OpenApiResponse(description="Ошибка аутентификации"),
         },
-        description="Logout a user by blacklisting their refresh token",
+        description="Выход пользователя из системы путем блокировки токена обновления",
     )
     def post(self, request):
         serializer = LogoutSerializer(data=request.data)
@@ -36,9 +36,9 @@ class UserCreateView(generics.CreateAPIView):
         request=UserCreateSerializer,
         responses={
             201: UserCreateSerializer,
-            400: OpenApiResponse(description="Invalid data"),
+            400: OpenApiResponse(description="Неверные данные"),
         },
-        description="Create a new user account",
+        description="Создание нового пользователя",
     )
     def post(self, request, *args, **kwargs):
         return super().post(request, *args, **kwargs)
@@ -51,9 +51,9 @@ class UserProfileView(generics.RetrieveUpdateAPIView):
     @extend_schema(
         responses={
             200: UserSerializer,
-            401: OpenApiResponse(description="Authentication failed"),
+            401: OpenApiResponse(description="Ошибка аутентификации"),
         },
-        description="Retrieve or update the authenticated user's profile",
+        description="Получение или обновление профиля аутентифицированного пользователя",
     )
     def get_object(self):
         return self.request.user

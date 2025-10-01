@@ -167,7 +167,7 @@ SIMPLE_JWT = {
 # API Schema documentation
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Travel API',
-    'DESCRIPTION': 'API for Travel app',
+    'DESCRIPTION': 'API для приложения путешествий',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
     'SWAGGER_UI_DIST': 'SIDECAR',  # shorthand to use the sidecar instead
