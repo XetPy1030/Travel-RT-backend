@@ -18,3 +18,14 @@ class NewsSerializer(serializers.ModelSerializer):
             "created_at",
             "created_by",
         ]
+
+
+class NewsParserCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = News
+        fields = ["title", "description", "content", "published_at"]
+
+    def create(self, validated_data):
+        validated_data["creation_method"] = News.CreationMethod.PARSING
+        validated_data["created_by"] = None
+        return super().create(validated_data)

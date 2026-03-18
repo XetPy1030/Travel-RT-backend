@@ -143,6 +143,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Custom user model
 AUTH_USER_MODEL = 'accounts.User'
+PARSER_SERVICE_TOKEN = os.getenv('PARSER_SERVICE_TOKEN', '')
 
 # REST Framework settings
 REST_FRAMEWORK = {
