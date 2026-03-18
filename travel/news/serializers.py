@@ -4,7 +4,7 @@ from .models import News
 
 
 class NewsSerializer(serializers.ModelSerializer):
-    created_by = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    created_by = serializers.PrimaryKeyRelatedField(read_only=True, allow_null=True)
 
     class Meta:
         model = News
@@ -14,6 +14,7 @@ class NewsSerializer(serializers.ModelSerializer):
             "image",
             "description",
             "content",
+            "published_at",
             "created_at",
             "created_by",
         ]

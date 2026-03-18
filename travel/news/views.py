@@ -17,5 +17,5 @@ class NewsViewSet(viewsets.ReadOnlyModelViewSet):
     ]
     filterset_fields = []
     search_fields = ["title", "description"]
-    ordering_fields = ["created_at", "title"]
-    ordering = ["-created_at"]
+    ordering_fields = ["published_at", "created_at", "title"]
+    ordering = ["-published_at"]

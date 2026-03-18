@@ -53,7 +53,8 @@ class UserProfileView(generics.RetrieveUpdateAPIView):
             200: UserSerializer,
             401: OpenApiResponse(description="Ошибка аутентификации"),
         },
-        description="Получение или обновление профиля аутентифицированного пользователя",
+        description="Получение или обновление профиля "
+        "аутентифицированного пользователя",
     )
     def get_object(self):
         return self.request.user
