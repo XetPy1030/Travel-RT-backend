@@ -11,7 +11,7 @@ class UserAdmin(BaseUserAdmin):
     list_filter = ("is_staff", "is_superuser", "is_active", "date_joined")
     search_fields = ("email", "first_name", "last_name")
     ordering = ("email",)
-    
+
     fieldsets = (
         (None, {"fields": ("email", "password")}),
         (_("Personal info"), {"fields": ("first_name", "last_name")}),
@@ -29,7 +29,7 @@ class UserAdmin(BaseUserAdmin):
         ),
         (_("Important dates"), {"fields": ("last_login", "date_joined")}),
     )
-    
+
     add_fieldsets = (
         (
             None,
