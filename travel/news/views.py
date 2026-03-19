@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 from ..core.pagination import StandardResultsSetPagination
 from .authentication import ParserBearerAuthentication
 from .models import News
-from .serializers import NewsParserCreateSerializer, NewsSerializer
+from .serializers import NewsParserCreateSerializer, NewsParserUpdateSerializer, NewsSerializer
 
 
 class NewsViewSet(viewsets.ReadOnlyModelViewSet):
@@ -34,3 +34,18 @@ class NewsParserCreateView(APIView):
         serializer.is_valid(raise_exception=True)
         news = serializer.save()
         return Response({"id": news.id}, status=status.HTTP_201_CREATED)
+
+
+class NewsParserUpdateView(APIView):
+    authentication_classes = (ParserBearerAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def patch(self, request, pk: int):
+        news = News.objects.filter(pk=pk).first()
+        if news is None:
+            return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
+
+        serializer = NewsParserUpdateSerializer(instance=news, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        updated = serializer.save()
+        return Response({"id": updated.id}, status=status.HTTP_200_OK)
