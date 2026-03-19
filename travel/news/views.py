@@ -22,7 +22,7 @@ class NewsViewSet(viewsets.ReadOnlyModelViewSet):
     filterset_fields = []
     search_fields = ["title", "description"]
     ordering_fields = ["published_at", "created_at", "title"]
-    ordering = ["-published_at"]
+    ordering = ["-published_at", "-created_at"]
 
 
 class NewsParserCreateView(APIView):
