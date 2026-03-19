@@ -56,5 +56,6 @@ max-complexity = 10
 known-first-party = ["travel_rt"]
 
 [lint.per-file-ignores]
-# Example: `"__init__.py" = ["F401"]`
-# Type: `Dict[str, List[str]]` 
+# Пример: `"__init__.py" = ["F401"]`
+# Игнорировать E501 (line too long) в папке prompts — длинные строки в промптах допустимы
+"travel/prompts/*.py" = ["E501"] 

@@ -11,7 +11,17 @@ class Router(models.Model):
         MEDIUM = "medium", "Средний"
         HARD = "hard", "Сложный"
 
+    class CreationMethod(models.TextChoices):
+        MANUAL = "manual", "Вручную"
+        AI_GENERATED = "ai_generated", "Сгенерирован ИИ"
+
     title = models.CharField("Название", max_length=255)
+    creation_method = models.CharField(
+        "Способ создания",
+        max_length=20,
+        choices=CreationMethod.choices,
+        default=CreationMethod.MANUAL,
+    )
     short_description = models.TextField("Краткое описание")
     full_description = CKEditor5Field("Полное описание", config_name="extends")
     image = models.ImageField(
@@ -68,3 +78,40 @@ class Router(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class RouteGenerationJob(models.Model):
+    class Status(models.TextChoices):
+        PENDING = "pending", "Ожидает"
+        PROCESSING = "processing", "В обработке"
+        COMPLETED = "completed", "Завершён"
+        FAILED = "failed", "Ошибка"
+
+    task_id = models.CharField("ID задачи", max_length=64, unique=True, db_index=True)
+    status = models.CharField(
+        "Статус",
+        max_length=20,
+        choices=Status.choices,
+        default=Status.PENDING,
+    )
+    result = models.JSONField("Результат LLM", null=True, blank=True)
+    router = models.OneToOneField(
+        Router,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="generation_job",
+        verbose_name="Созданный маршрут",
+    )
+    error_message = models.TextField("Сообщение об ошибке", blank=True)
+    intent = models.JSONField("Intent (параметры запроса)", null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Задача генерации маршрута"
+        verbose_name_plural = "Задачи генерации маршрутов"
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"{self.task_id} ({self.status})"
