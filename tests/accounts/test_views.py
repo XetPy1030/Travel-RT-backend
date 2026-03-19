@@ -34,9 +34,7 @@ class UserAPITest(APITestCase):
         )
 
         # Set the token in the Authorization header
-        self.client.credentials(
-            HTTP_AUTHORIZATION=f"Bearer {token_response.data['access']}"
-        )
+        self.client.credentials(HTTP_AUTHORIZATION=f"Bearer {token_response.data['access']}")
 
         # Get user profile
         response = self.client.get(self.profile_url)

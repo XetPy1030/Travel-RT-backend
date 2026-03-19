@@ -11,9 +11,7 @@ class News(models.Model):
         PARSING = "parsing", "Парсинг"
 
     title = models.CharField("Заголовок", max_length=255)
-    image = models.ImageField(
-        "Изображение", upload_to="news_images/", null=True, blank=True
-    )
+    image = models.ImageField("Изображение", upload_to="news_images/", null=True, blank=True)
     description = models.TextField("Описание")
     content = CKEditor5Field("Содержание", config_name="extends")
     published_at = models.DateTimeField("Дата публикации", default=timezone.now)

@@ -2,6 +2,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters, viewsets
 
 from ..core.pagination import StandardResultsSetPagination
+from .filters import PlaceFilterSet
 from .models import Place
 from .serializers import PlaceDetailSerializer, PlaceListSerializer
 
@@ -14,7 +15,7 @@ class PlaceViewSet(viewsets.ReadOnlyModelViewSet):
         filters.SearchFilter,
         filters.OrderingFilter,
     ]
-    filterset_fields = ["district", "settlement"]
+    filterset_class = PlaceFilterSet
     search_fields = ["title", "short_description"]
     ordering_fields = ["title", "created_at"]
     ordering = ["title"]

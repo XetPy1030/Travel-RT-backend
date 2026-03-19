@@ -5,6 +5,19 @@ from django_ckeditor_5.fields import CKEditor5Field
 from travel.locations.models import District, Settlement
 
 
+class Tag(models.Model):
+    name = models.CharField("Название", max_length=100)
+    slug = models.SlugField("Слаг", max_length=100, unique=True)
+
+    class Meta:
+        verbose_name = "Тег"
+        verbose_name_plural = "Теги"
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name
+
+
 class Place(models.Model):
     title = models.CharField("Название", max_length=255)
     short_description = models.TextField("Краткое описание")
@@ -25,6 +38,12 @@ class Place(models.Model):
         related_name="places",
         verbose_name="Населённый пункт",
     )
+    tags = models.ManyToManyField(
+        Tag,
+        related_name="places",
+        blank=True,
+        verbose_name="Теги",
+    )
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -36,9 +55,7 @@ class Place(models.Model):
 
     def clean(self):
         if not self.district and not self.settlement:
-            raise ValidationError(
-                "Место должно иметь либо район, либо населенный пункт"
-            )
+            raise ValidationError("Место должно иметь либо район, либо населенный пункт")
 
     def save(self, *args, **kwargs):
         self.full_clean()

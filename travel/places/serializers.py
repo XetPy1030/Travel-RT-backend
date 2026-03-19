@@ -14,6 +14,7 @@ class PlaceListSerializer(serializers.ModelSerializer):
     images = PlaceImageSerializer(many=True, read_only=True)
     district_name = serializers.CharField(source="district.name", read_only=True)
     settlement_name = serializers.CharField(source="settlement.name", read_only=True)
+    tags = serializers.SerializerMethodField()
 
     class Meta:
         model = Place
@@ -25,17 +26,22 @@ class PlaceListSerializer(serializers.ModelSerializer):
             "district_name",
             "settlement",
             "settlement_name",
+            "tags",
             "created_at",
             "updated_at",
             "images",
         )
         read_only_fields = ("created_at", "updated_at")
 
+    def get_tags(self, obj):
+        return [{"slug": t.slug, "name": t.name} for t in obj.tags.all()]
+
 
 class PlaceDetailSerializer(serializers.ModelSerializer):
     images = PlaceImageSerializer(many=True, read_only=True)
     district_name = serializers.CharField(source="district.name", read_only=True)
     settlement_name = serializers.CharField(source="settlement.name", read_only=True)
+    tags = serializers.SerializerMethodField()
 
     class Meta:
         model = Place
@@ -48,15 +54,17 @@ class PlaceDetailSerializer(serializers.ModelSerializer):
             "district_name",
             "settlement",
             "settlement_name",
+            "tags",
             "created_at",
             "updated_at",
             "images",
         )
         read_only_fields = ("created_at", "updated_at")
 
+    def get_tags(self, obj):
+        return [{"slug": t.slug, "name": t.name} for t in obj.tags.all()]
+
     def validate(self, data):
         if not data.get("district") and not data.get("settlement"):
-            raise ValidationError(
-                "Место должно иметь либо район, либо населенный пункт"
-            )
+            raise ValidationError("Место должно иметь либо район, либо населенный пункт")
         return data

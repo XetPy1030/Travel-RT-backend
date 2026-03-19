@@ -16,11 +16,6 @@ class NewsAdmin(admin.ModelAdmin):
     )
 
     def save_model(self, request, obj, form, change):
-        if (
-            not change
-            and obj.created_by is None
-            and getattr(request, "user", None)
-            and request.user.is_authenticated
-        ):
+        if not change and obj.created_by is None and getattr(request, "user", None) and request.user.is_authenticated:
             obj.created_by = request.user
         super().save_model(request, obj, form, change)

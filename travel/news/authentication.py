@@ -31,7 +31,7 @@ class ParserBearerAuthentication(BaseAuthentication):
             raise AuthenticationFailed("Invalid authorization scheme.")
         if len(auth) == 1:
             raise AuthenticationFailed("Token is required.")
-        if len(auth) > 2:  # noqa:PLR2004
+        if len(auth) > 2:
             raise AuthenticationFailed("Invalid Authorization header format.")
 
         try:

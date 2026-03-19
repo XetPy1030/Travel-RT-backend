@@ -94,9 +94,7 @@ class TokenBlacklistTest(APITestCase):
 
 class AuthenticationIntegrationTest(APITestCase):
     def setUp(self):
-        self.user = UserFactory(
-            email="integration@test.com", password="integration_pass123"
-        )
+        self.user = UserFactory(email="integration@test.com", password="integration_pass123")
         self.credentials = {
             "email": "integration@test.com",
             "password": "integration_pass123",

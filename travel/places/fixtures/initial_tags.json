@@ -1,0 +1,1274 @@
+[
+  {
+    "model": "places.tag",
+    "pk": 1,
+    "fields": {
+      "name": "Музей",
+      "slug": "museum"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 2,
+    "fields": {
+      "name": "Галерея",
+      "slug": "gallery"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 3,
+    "fields": {
+      "name": "Театр",
+      "slug": "theater"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 4,
+    "fields": {
+      "name": "Кинотеатр",
+      "slug": "cinema"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 5,
+    "fields": {
+      "name": "Концертный зал",
+      "slug": "concert_hall"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 6,
+    "fields": {
+      "name": "Библиотека",
+      "slug": "library"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 7,
+    "fields": {
+      "name": "Храм",
+      "slug": "church"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 8,
+    "fields": {
+      "name": "Собор",
+      "slug": "cathedral"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 9,
+    "fields": {
+      "name": "Мечеть",
+      "slug": "mosque"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 10,
+    "fields": {
+      "name": "Святилище",
+      "slug": "temple"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 11,
+    "fields": {
+      "name": "Монастырь",
+      "slug": "monastery"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 12,
+    "fields": {
+      "name": "Замок",
+      "slug": "castle"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 13,
+    "fields": {
+      "name": "Крепость",
+      "slug": "fortress"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 14,
+    "fields": {
+      "name": "Дворец",
+      "slug": "palace"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 15,
+    "fields": {
+      "name": "Усадьба",
+      "slug": "manor"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 16,
+    "fields": {
+      "name": "Памятник",
+      "slug": "monument"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 17,
+    "fields": {
+      "name": "Мемориал",
+      "slug": "memorial"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 18,
+    "fields": {
+      "name": "Скульптура",
+      "slug": "statue"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 19,
+    "fields": {
+      "name": "Парк",
+      "slug": "park"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 20,
+    "fields": {
+      "name": "Сад",
+      "slug": "garden"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 21,
+    "fields": {
+      "name": "Площадь",
+      "slug": "square"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 22,
+    "fields": {
+      "name": "Улица",
+      "slug": "street"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 23,
+    "fields": {
+      "name": "Рынок",
+      "slug": "market"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 24,
+    "fields": {
+      "name": "Базар",
+      "slug": "bazaar"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 25,
+    "fields": {
+      "name": "Торговый центр",
+      "slug": "shopping_mall"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 26,
+    "fields": {
+      "name": "Кафе",
+      "slug": "cafe"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 27,
+    "fields": {
+      "name": "Ресторан",
+      "slug": "restaurant"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 28,
+    "fields": {
+      "name": "Бар",
+      "slug": "bar"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 29,
+    "fields": {
+      "name": "Пивоварня",
+      "slug": "brewery"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 30,
+    "fields": {
+      "name": "Винодельня",
+      "slug": "winery"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 31,
+    "fields": {
+      "name": "Отель",
+      "slug": "hotel"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 32,
+    "fields": {
+      "name": "Хостел",
+      "slug": "hostel"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 33,
+    "fields": {
+      "name": "Смотровая площадка",
+      "slug": "viewpoint"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 34,
+    "fields": {
+      "name": "Мост",
+      "slug": "bridge"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 35,
+    "fields": {
+      "name": "Фонтан",
+      "slug": "fountain"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 36,
+    "fields": {
+      "name": "Пляж",
+      "slug": "beach"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 37,
+    "fields": {
+      "name": "Озеро",
+      "slug": "lake"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 38,
+    "fields": {
+      "name": "Река",
+      "slug": "river"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 39,
+    "fields": {
+      "name": "Гора",
+      "slug": "mountain"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 40,
+    "fields": {
+      "name": "Лес",
+      "slug": "forest"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 41,
+    "fields": {
+      "name": "Заповедник",
+      "slug": "nature_reserve"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 42,
+    "fields": {
+      "name": "Зоопарк",
+      "slug": "zoo"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 43,
+    "fields": {
+      "name": "Аквариум",
+      "slug": "aquarium"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 44,
+    "fields": {
+      "name": "Парк развлечений",
+      "slug": "amusement_park"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 45,
+    "fields": {
+      "name": "Стадион",
+      "slug": "stadium"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 46,
+    "fields": {
+      "name": "Спортивный комплекс",
+      "slug": "sports_complex"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 47,
+    "fields": {
+      "name": "Баня",
+      "slug": "bathhouse"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 48,
+    "fields": {
+      "name": "Спа",
+      "slug": "spa"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 49,
+    "fields": {
+      "name": "Прогулка",
+      "slug": "walking"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 50,
+    "fields": {
+      "name": "Поход",
+      "slug": "hiking"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 51,
+    "fields": {
+      "name": "Велосипед",
+      "slug": "cycling"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 52,
+    "fields": {
+      "name": "Фотографии",
+      "slug": "photography"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 53,
+    "fields": {
+      "name": "Осмотр достопримечательностей",
+      "slug": "sightseeing"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 54,
+    "fields": {
+      "name": "Шопинг",
+      "slug": "shopping"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 55,
+    "fields": {
+      "name": "Еда",
+      "slug": "dining"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 56,
+    "fields": {
+      "name": "Ночная жизнь",
+      "slug": "nightlife"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 57,
+    "fields": {
+      "name": "Развлечения",
+      "slug": "entertainment"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 58,
+    "fields": {
+      "name": "Образование",
+      "slug": "education"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 59,
+    "fields": {
+      "name": "Мастер-класс",
+      "slug": "workshop"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 60,
+    "fields": {
+      "name": "Экскурсия",
+      "slug": "guided_tour"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 61,
+    "fields": {
+      "name": "Плавание",
+      "slug": "swimming"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 62,
+    "fields": {
+      "name": "Катание на лодке",
+      "slug": "boating"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 63,
+    "fields": {
+      "name": "Рыбалка",
+      "slug": "fishing"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 64,
+    "fields": {
+      "name": "Пикник",
+      "slug": "picnic"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 65,
+    "fields": {
+      "name": "Кемпинг",
+      "slug": "camping"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 66,
+    "fields": {
+      "name": "Скалолазание",
+      "slug": "climbing"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 67,
+    "fields": {
+      "name": "Лыжи",
+      "slug": "skiing"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 68,
+    "fields": {
+      "name": "Катание на коньках",
+      "slug": "skating"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 69,
+    "fields": {
+      "name": "Наблюдение за птицами",
+      "slug": "birdwatching"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 70,
+    "fields": {
+      "name": "Наблюдение за звёздами",
+      "slug": "stargazing"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 71,
+    "fields": {
+      "name": "Медитация",
+      "slug": "meditation"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 72,
+    "fields": {
+      "name": "Йога",
+      "slug": "yoga"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 73,
+    "fields": {
+      "name": "Семья",
+      "slug": "family"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 74,
+    "fields": {
+      "name": "Дети",
+      "slug": "kids"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 75,
+    "fields": {
+      "name": "Пары",
+      "slug": "couples"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 76,
+    "fields": {
+      "name": "Романтика",
+      "slug": "romantic"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 77,
+    "fields": {
+      "name": "Соло-путешественник",
+      "slug": "solo_traveler"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 78,
+    "fields": {
+      "name": "Группы",
+      "slug": "groups"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 79,
+    "fields": {
+      "name": "Пожилые",
+      "slug": "elderly"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 80,
+    "fields": {
+      "name": "Студенты",
+      "slug": "students"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 81,
+    "fields": {
+      "name": "Бизнес-путешественник",
+      "slug": "business_traveler"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 82,
+    "fields": {
+      "name": "В помещении",
+      "slug": "indoor"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 83,
+    "fields": {
+      "name": "На улице",
+      "slug": "outdoor"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 84,
+    "fields": {
+      "name": "Под навесом",
+      "slug": "covered"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 85,
+    "fields": {
+      "name": "На открытом воздухе",
+      "slug": "open_air"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 86,
+    "fields": {
+      "name": "Аудиогид",
+      "slug": "audio_guide"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 87,
+    "fields": {
+      "name": "Интерактивно",
+      "slug": "interactive"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 88,
+    "fields": {
+      "name": "Можно трогать",
+      "slug": "hands_on"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 89,
+    "fields": {
+      "name": "Выставка",
+      "slug": "exhibition"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 90,
+    "fields": {
+      "name": "Постоянная экспозиция",
+      "slug": "permanent_collection"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 91,
+    "fields": {
+      "name": "Временная выставка",
+      "slug": "temporary_exhibition"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 92,
+    "fields": {
+      "name": "Бесплатный вход",
+      "slug": "free_entry"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 93,
+    "fields": {
+      "name": "Платный вход",
+      "slug": "paid_entry"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 94,
+    "fields": {
+      "name": "За пожертвование",
+      "slug": "donation_based"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 95,
+    "fields": {
+      "name": "По записи",
+      "slug": "reservation_required"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 96,
+    "fields": {
+      "name": "Без записи",
+      "slug": "no_reservation"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 97,
+    "fields": {
+      "name": "Парковка",
+      "slug": "parking"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 98,
+    "fields": {
+      "name": "Общественный транспорт",
+      "slug": "public_transport"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 99,
+    "fields": {
+      "name": "Wi-Fi",
+      "slug": "wifi"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 100,
+    "fields": {
+      "name": "Туалет",
+      "slug": "restroom"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 101,
+    "fields": {
+      "name": "Есть еда",
+      "slug": "food_available"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 102,
+    "fields": {
+      "name": "Сувенирный магазин",
+      "slug": "gift_shop"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 103,
+    "fields": {
+      "name": "Доступно для колясок",
+      "slug": "wheelchair_accessible"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 104,
+    "fields": {
+      "name": "Можно с животными",
+      "slug": "pet_friendly"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 105,
+    "fields": {
+      "name": "Семейная комната",
+      "slug": "family_restroom"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 106,
+    "fields": {
+      "name": "Пеленальный столик",
+      "slug": "changing_table"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 107,
+    "fields": {
+      "name": "Лифт",
+      "slug": "elevator"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 108,
+    "fields": {
+      "name": "Только лестница",
+      "slug": "stairs_only"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 109,
+    "fields": {
+      "name": "Историческое",
+      "slug": "historic"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 110,
+    "fields": {
+      "name": "Современное",
+      "slug": "modern"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 111,
+    "fields": {
+      "name": "Традиционное",
+      "slug": "traditional"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 112,
+    "fields": {
+      "name": "Современное",
+      "slug": "contemporary"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 113,
+    "fields": {
+      "name": "Артистичное",
+      "slug": "artistic"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 114,
+    "fields": {
+      "name": "Культура",
+      "slug": "cultural"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 115,
+    "fields": {
+      "name": "Религиозное",
+      "slug": "religious"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 116,
+    "fields": {
+      "name": "Научное",
+      "slug": "scientific"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 117,
+    "fields": {
+      "name": "Индустриальное",
+      "slug": "industrial"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 118,
+    "fields": {
+      "name": "Архитектурное",
+      "slug": "architectural"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 119,
+    "fields": {
+      "name": "Тихое",
+      "slug": "quiet"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 120,
+    "fields": {
+      "name": "Оживлённое",
+      "slug": "lively"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 121,
+    "fields": {
+      "name": "Многолюдно",
+      "slug": "crowded"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 122,
+    "fields": {
+      "name": "Уединённое",
+      "slug": "secluded"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 123,
+    "fields": {
+      "name": "Инстаграмное",
+      "slug": "instagrammable"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 124,
+    "fields": {
+      "name": "Любимое местными",
+      "slug": "local_favorite"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 125,
+    "fields": {
+      "name": "Туристическая ловушка",
+      "slug": "tourist_trap"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 126,
+    "fields": {
+      "name": "Секретное место",
+      "slug": "hidden_gem"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 127,
+    "fields": {
+      "name": "Утро",
+      "slug": "morning"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 128,
+    "fields": {
+      "name": "День",
+      "slug": "afternoon"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 129,
+    "fields": {
+      "name": "Вечер",
+      "slug": "evening"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 130,
+    "fields": {
+      "name": "Ночь",
+      "slug": "night"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 131,
+    "fields": {
+      "name": "Круглый год",
+      "slug": "year_round"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 132,
+    "fields": {
+      "name": "Сезонный",
+      "slug": "seasonal"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 133,
+    "fields": {
+      "name": "Лето",
+      "slug": "summer"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 134,
+    "fields": {
+      "name": "Зима",
+      "slug": "winter"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 135,
+    "fields": {
+      "name": "Весна",
+      "slug": "spring"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 136,
+    "fields": {
+      "name": "Осень",
+      "slug": "autumn"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 137,
+    "fields": {
+      "name": "На закат",
+      "slug": "sunset_spot"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 138,
+    "fields": {
+      "name": "На рассвет",
+      "slug": "sunrise_spot"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 139,
+    "fields": {
+      "name": "Бесплатно",
+      "slug": "free"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 140,
+    "fields": {
+      "name": "Бюджетно",
+      "slug": "budget"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 141,
+    "fields": {
+      "name": "Средний ценник",
+      "slug": "mid_range"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 142,
+    "fields": {
+      "name": "Премиум",
+      "slug": "premium"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 143,
+    "fields": {
+      "name": "До 30 мин",
+      "slug": "quick_visit"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 144,
+    "fields": {
+      "name": "30–60 мин",
+      "slug": "short_visit"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 145,
+    "fields": {
+      "name": "1–2 часа",
+      "slug": "medium_visit"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 146,
+    "fields": {
+      "name": "2+ часа",
+      "slug": "long_visit"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 147,
+    "fields": {
+      "name": "Целый день",
+      "slug": "full_day"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 148,
+    "fields": {
+      "name": "История",
+      "slug": "history"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 149,
+    "fields": {
+      "name": "Искусство",
+      "slug": "art"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 150,
+    "fields": {
+      "name": "Наука",
+      "slug": "science"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 151,
+    "fields": {
+      "name": "Природа",
+      "slug": "nature"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 152,
+    "fields": {
+      "name": "Еда",
+      "slug": "food"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 153,
+    "fields": {
+      "name": "Ремёсла",
+      "slug": "crafts"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 154,
+    "fields": {
+      "name": "Военная тематика",
+      "slug": "military"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 155,
+    "fields": {
+      "name": "Литература",
+      "slug": "literature"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 156,
+    "fields": {
+      "name": "Музыка",
+      "slug": "music"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 157,
+    "fields": {
+      "name": "Фольклор",
+      "slug": "folklore"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 158,
+    "fields": {
+      "name": "Городское",
+      "slug": "urban"
+    }
+  },
+  {
+    "model": "places.tag",
+    "pk": 159,
+    "fields": {
+      "name": "Сельское",
+      "slug": "rural"
+    }
+  }
+]

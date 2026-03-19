@@ -28,17 +28,11 @@ class RouterViewSetTest(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data["results"]), 1)
         self.assertEqual(response.data["results"][0]["title"], "Test Router")
-        self.assertEqual(
-            response.data["results"][0]["short_description"], "Short description"
-        )
+        self.assertEqual(response.data["results"][0]["short_description"], "Short description")
         self.assertEqual(response.data["results"][0]["duration"], "02:00:00")
         self.assertEqual(response.data["results"][0]["difficulty"], "medium")
-        self.assertEqual(
-            response.data["results"][0]["district_name"], self.district.name
-        )
-        self.assertEqual(
-            response.data["results"][0]["settlement_name"], self.settlement.name
-        )
+        self.assertEqual(response.data["results"][0]["district_name"], self.district.name)
+        self.assertEqual(response.data["results"][0]["settlement_name"], self.settlement.name)
 
     def test_retrieve_router(self):
         """Test retrieving a single router."""

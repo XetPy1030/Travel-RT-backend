@@ -60,9 +60,7 @@ class Router(models.Model):
 
     def clean(self):
         if not self.district and not self.settlement:
-            raise ValidationError(
-                "Место должно иметь либо район, либо населенный пункт"
-            )
+            raise ValidationError("Место должно иметь либо район, либо населенный пункт")
 
     def save(self, *args, **kwargs):
         self.full_clean()

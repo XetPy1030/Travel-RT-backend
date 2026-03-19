@@ -29,9 +29,7 @@ class SettlementModelTest(TestCase):
         self.assertEqual(settlement.district, self.district)
 
     def test_create_city_district(self):
-        settlement = Settlement.objects.create(
-            name="Test City", type=Settlement.SettlementType.CITY
-        )
+        settlement = Settlement.objects.create(name="Test City", type=Settlement.SettlementType.CITY)
         self.assertEqual(settlement.name, "Test City")
         self.assertEqual(settlement.type, Settlement.SettlementType.CITY)
         self.assertIsNone(settlement.district)

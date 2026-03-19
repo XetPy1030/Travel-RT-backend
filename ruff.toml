@@ -4,6 +4,7 @@ lint.ignore = [
     "RUF012",  # Mutable class attributes should be annotated with `typing.ClassVar`
     "RUF001",  # CYRILLIC CAPITAL LETTER ES
     "RUF002",  # CYRILLIC SMALL LETTER
+    "PLR2004", # Magic value
 ]
 
 # Allow autofix for all enabled rules (when `--fix`) is provided.
@@ -39,7 +40,7 @@ exclude = [
 ]
 
 # Same as Black.
-line-length = 88
+line-length = 120
 
 # Allow unused variables when underscore-prefixed.
 lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
