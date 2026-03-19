@@ -119,6 +119,11 @@ def generate_route(request):
             )
         intent = intent_response
 
+    if user_text:
+        # Прокидываем исходный запрос пользователя в intent,
+        # чтобы генератор маршрута мог учитывать стиль и формулировки.
+        intent["user_text"] = user_text
+
     ok, err_msg = validate_intent_location(intent)
     if not ok:
         return Response(

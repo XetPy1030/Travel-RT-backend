@@ -19,8 +19,9 @@ def build_route_generation_prompt(context: dict[str, Any]) -> str:
     existing_titles = context.get("existing_route_titles", [])
     intent = context.get("intent", {})
 
-    user_request = intent.get("location_name", "") or "маршрут"
-    if intent.get("preferred_tags"):
+    user_text = (intent.get("user_text") or "").strip()
+    user_request = user_text or (intent.get("location_name", "") or "маршрут")
+    if not user_text and intent.get("preferred_tags"):
         user_request += " (теги: " + ", ".join(intent["preferred_tags"]) + ")"
     transport_mode = intent.get("transport_mode") or "pedestrian"
 
@@ -78,4 +79,8 @@ def build_route_generation_prompt(context: dict[str, Any]) -> str:
 3. Включи 3-7 точек маршрута в логическом порядке. waypoints[].name — только из переданного списка мест (поле title).
 4. Не выдумывай места. Если подходящих мало — используй только их.
 5. Новости упоминай только если релевантны маршруту или точке.
+6. description и tips пиши дружелюбно и понятно для обычного туриста:
+   - избегай канцелярита и сухих формулировок;
+   - используй простой человеческий язык;
+   - добавляй практичные детали (что увидеть, когда лучше прийти, на что обратить внимание).
 """
