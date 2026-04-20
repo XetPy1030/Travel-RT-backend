@@ -20,6 +20,15 @@ from travel.places.models import Place, PlaceImage
 IMAGE_CONTENT_TYPES = {"image/jpeg", "image/png", "image/webp", "image/gif"}
 REQUEST_TIMEOUT_SECONDS = 20
 MAX_FUZZY_CANDIDATES = 5
+HTTP_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36 TravelRTImporter/1.0"
+    ),
+    "Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
+    "Referer": "https://commons.wikimedia.org/",
+}
 
 
 @dataclass
@@ -513,7 +522,17 @@ class Command(BaseCommand):
         return saved, failed
 
     def _download_image(self, url: str) -> tuple[ContentFile, str]:
-        response = requests.get(url, timeout=REQUEST_TIMEOUT_SECONDS)
+        response = requests.get(
+            url,
+            timeout=REQUEST_TIMEOUT_SECONDS,
+            headers=HTTP_HEADERS,
+        )
+        if response.status_code in {403, 429}:
+            response = requests.get(
+                url,
+                timeout=REQUEST_TIMEOUT_SECONDS,
+                headers={**HTTP_HEADERS, "Cache-Control": "no-cache"},
+            )
         if response.status_code >= 400:
             raise ValueError(f"HTTP {response.status_code}")
 
