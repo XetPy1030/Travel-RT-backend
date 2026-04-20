@@ -134,11 +134,15 @@ class Command(BaseCommand):
         except json.JSONDecodeError as exc:
             raise CommandError(f"Некорректный JSON в {file_path}: {exc}") from exc
 
-        if not isinstance(payload, list):
-            raise CommandError("Ожидался массив объектов JSON")
+        if not isinstance(payload, dict):
+            raise CommandError("Ожидался JSON-объект нового формата с ключом 'attractions'")
+
+        attractions = payload.get("attractions")
+        if not isinstance(attractions, list):
+            raise CommandError("В JSON отсутствует список 'attractions' или он имеет неверный тип")
 
         records: list[dict[str, Any]] = []
-        for idx, item in enumerate(payload, start=1):
+        for idx, item in enumerate(attractions, start=1):
             if not isinstance(item, dict):
                 raise CommandError(f"Запись #{idx} не является объектом JSON")
             records.append(item)
