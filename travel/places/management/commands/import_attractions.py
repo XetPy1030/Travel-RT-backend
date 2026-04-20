@@ -57,6 +57,12 @@ class PlaceSavePayload:
 class Command(BaseCommand):
     help = "Импортирует attractions.json в модели Place и PlaceImage."
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._district_choice_cache: dict[str, District | None] = {}
+        self._settlement_choice_cache: dict[tuple[str, int | None], Settlement | None] = {}
+        self._duplicate_action_cache: dict[tuple[str, int | None, int | None], str] = {}
+
     def add_arguments(self, parser):
         parser.add_argument(
             "--file",
@@ -333,28 +339,36 @@ class Command(BaseCommand):
             return None
 
         normalized = self._normalize_district_name(raw_name)
+        if normalized in self._district_choice_cache:
+            return self._district_choice_cache[normalized]
+
         exact_matches = district_index.get(normalized, [])
         if len(exact_matches) == 1:
+            self._district_choice_cache[normalized] = exact_matches[0]
             return exact_matches[0]
         if len(exact_matches) > 1:
-            return self._prompt_choice(
+            selected = self._prompt_choice(
                 message=f"{context}: несколько district с точным совпадением '{raw_name}'",
                 candidates=exact_matches,
                 format_candidate=lambda item: f"{item.name} [id={item.id}]",
                 non_interactive=non_interactive,
             )
+            self._district_choice_cache[normalized] = selected
+            return selected
 
         candidates = self._fuzzy_matches(
             source=normalized,
             candidates=[district for items in district_index.values() for district in items],
             normalizer=self._normalize_district_name,
         )
-        return self._prompt_choice(
+        selected = self._prompt_choice(
             message=f"{context}: district '{raw_name}' не найден, выберите похожий",
             candidates=candidates,
             format_candidate=lambda item: f"{item.name} [id={item.id}]",
             non_interactive=non_interactive,
         )
+        self._district_choice_cache[normalized] = selected
+        return selected
 
     def _resolve_settlement(
         self,
@@ -368,6 +382,10 @@ class Command(BaseCommand):
             return None
 
         normalized = self._normalize_settlement_name(raw_name)
+        cache_key = (normalized, district.id if district else None)
+        if cache_key in self._settlement_choice_cache:
+            return self._settlement_choice_cache[cache_key]
+
         exact_matches = settlement_index.get(normalized, [])
         if district is not None:
             district_exact = [item for item in exact_matches if item.district_id == district.id]
@@ -375,14 +393,17 @@ class Command(BaseCommand):
                 exact_matches = district_exact
 
         if len(exact_matches) == 1:
+            self._settlement_choice_cache[cache_key] = exact_matches[0]
             return exact_matches[0]
         if len(exact_matches) > 1:
-            return self._prompt_choice(
+            selected = self._prompt_choice(
                 message=f"{context}: несколько settlement с точным совпадением '{raw_name}'",
                 candidates=exact_matches,
                 format_candidate=self._format_settlement,
                 non_interactive=non_interactive,
             )
+            self._settlement_choice_cache[cache_key] = selected
+            return selected
 
         all_settlements = [item for items in settlement_index.values() for item in items]
         if district is not None:
@@ -397,12 +418,14 @@ class Command(BaseCommand):
             candidates=all_settlements,
             normalizer=self._normalize_settlement_name,
         )
-        return self._prompt_choice(
+        selected = self._prompt_choice(
             message=f"{context}: settlement '{raw_name}' не найден, выберите похожий",
             candidates=candidates,
             format_candidate=self._format_settlement,
             non_interactive=non_interactive,
         )
+        self._settlement_choice_cache[cache_key] = selected
+        return selected
 
     def _resolve_duplicate_action(
         self,
@@ -413,12 +436,20 @@ class Command(BaseCommand):
         if non_interactive:
             raise CommandError(f"{context}: найден дубликат, нужен интерактивный выбор")
 
+        cache_key = (place.title, place.district_id, place.settlement_id)
+        cached_action = self._duplicate_action_cache.get(cache_key)
+        if cached_action is not None:
+            return cached_action
+
         self.stdout.write(self.style.WARNING(f"{context}: найден дубликат Place id={place.id}, title='{place.title}'"))
         self.stdout.write("Введите 'o' (overwrite) или 's' (skip), по умолчанию: s")
-        answer = self.stdin.readline().strip().lower()
+        answer = self._read_input().lower()
 
         if answer in {"o", "overwrite"}:
+            self._duplicate_action_cache[cache_key] = "overwrite"
             return "overwrite"
+
+        self._duplicate_action_cache[cache_key] = "skip"
         return "skip"
 
     def _build_short_description(self, record: dict[str, Any]) -> str:
@@ -547,7 +578,7 @@ class Command(BaseCommand):
         self.stdout.write("Введите номер варианта: ")
 
         while True:
-            answer = self.stdin.readline().strip()
+            answer = self._read_input()
             if not answer:
                 return None
 
@@ -559,6 +590,12 @@ class Command(BaseCommand):
                     return candidates[selected - 1]
 
             self.stdout.write("Некорректный выбор. Введите номер из списка: ")
+
+    def _read_input(self) -> str:
+        try:
+            return input().strip()
+        except EOFError:
+            return ""
 
     def _format_settlement(self, settlement: Settlement) -> str:
         district_name = settlement.district.name if settlement.district else "Без района"
