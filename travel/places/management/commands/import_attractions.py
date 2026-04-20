@@ -401,6 +401,7 @@ class Command(BaseCommand):
                 candidates=exact_matches,
                 format_candidate=self._format_settlement,
                 non_interactive=non_interactive,
+                none_option_label=("Не заполнять settlement" if district is not None else "Пропустить запись"),
             )
             self._settlement_choice_cache[cache_key] = selected
             return selected
@@ -423,6 +424,7 @@ class Command(BaseCommand):
             candidates=candidates,
             format_candidate=self._format_settlement,
             non_interactive=non_interactive,
+            none_option_label=("Не заполнять settlement" if district is not None else "Пропустить запись"),
         )
         self._settlement_choice_cache[cache_key] = selected
         return selected
@@ -564,6 +566,7 @@ class Command(BaseCommand):
         candidates: list[Any],
         format_candidate,
         non_interactive: bool,
+        none_option_label: str = "Пропустить запись",
     ) -> Any | None:
         if not candidates:
             return None
@@ -574,7 +577,7 @@ class Command(BaseCommand):
         self.stdout.write(self.style.WARNING(message))
         for idx, candidate in enumerate(candidates, start=1):
             self.stdout.write(f"  {idx}. {format_candidate(candidate)}")
-        self.stdout.write("  0. Пропустить запись")
+        self.stdout.write(f"  0. {none_option_label}")
         self.stdout.write("Введите номер варианта: ")
 
         while True:
