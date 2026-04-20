@@ -246,9 +246,6 @@ class Command(BaseCommand):
     ) -> tuple[District | None, Settlement | None]:
         district_name = str(record.get("district") or "").strip()
         settlement_name = str(record.get("settlement") or "").strip()
-        additional_info = record.get("additional_info") or {}
-        if not settlement_name and isinstance(additional_info, dict):
-            settlement_name = str(additional_info.get("raw_settlement") or "").strip()
 
         district = self._resolve_district(
             raw_name=district_name,
